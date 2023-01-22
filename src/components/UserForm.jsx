@@ -48,15 +48,16 @@ function UserForm() {
           maxLength={10}
         />
         <button type="submit" class="btn btn-primary">Submit</button>
+       
       </form>
       {JSON.stringify(userDetails) !== '{}' && (
         <div class="text-center">
-          <h2>User Details</h2>
-          <p>Name: {userDetails.name}</p>
-          <p>UserCode: {userDetails.usercode}</p>
-          <p>MessCut Status: {messCutDetails.messcut ? 'true' : 'false'}</p>
-          <button onClick={handleUpdate} class="btn btn-success">Change Mess Cut Status</button>
-        </div>
+    <h2>User Details</h2>
+    <p>Name: {userDetails.name}</p>
+    <p>UserCode: {userDetails.usercode}</p>
+    <p>MessCut Status: {messCutDetails.messcut ? <i className="fas fa-check"></i> : <i className="fas fa-times"></i>}</p>
+    <button onClick={handleUpdate} class="btn btn-success">Change Mess Cut Status</button>
+</div>
       )}
       <List change={messCutDetails} class="mt-auto" />
 </div>
