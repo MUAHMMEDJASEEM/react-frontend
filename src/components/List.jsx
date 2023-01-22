@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles.css';
 
 const List = (props) => {
     const [messCutPersons, setMessCutPersons] = useState([]);
@@ -11,7 +12,7 @@ const List = (props) => {
       return (
 <div class="text-center">
     <h2>Mess Cut Persons</h2>
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered rounded-corners">
         <thead>
             <tr>
                 <th>Sl.no</th>
@@ -20,16 +21,18 @@ const List = (props) => {
                 <th>Time</th>
             </tr>
         </thead>
-        <tbody>
-            {messCutPersons.map((person, index) => 
-                <tr class="table-success" key={person._id}>
-                    <td>{index+1}</td>
-                    <td>{person.name.toUpperCase()}</td>
-                    <td>{person.usercode}</td>
-                    <td>{person.time}</td>
-                </tr>
-            )}
-        </tbody>
+<tbody>
+  {messCutPersons.map((person, index) => 
+
+      <tr className="table-success">
+        <td>{index+1}</td>
+        <td>{person.name.toUpperCase()}</td>
+        <td>{person.usercode}</td>
+        <td>{person.time}</td>
+      </tr>
+
+  )}
+</tbody>
     </table>
 </div>
     );

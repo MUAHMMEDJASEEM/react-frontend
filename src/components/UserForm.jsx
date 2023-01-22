@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import List from './List';
+import './styles.css';
 function UserForm() {
   const [userCode, setUserCode] = useState('');
   const [userDetails, setUserDetails] = useState({});
