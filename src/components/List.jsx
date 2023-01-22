@@ -9,7 +9,7 @@ const List = (props) => {
           .catch(error => console.log(error));
       }, [props.change]);
       return (
-        <div>
+<div class="text-center">
     <h2>Mess Cut Persons</h2>
     <table class="table table-striped table-bordered">
         <thead>
