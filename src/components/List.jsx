@@ -10,26 +10,28 @@ const List = (props) => {
       }, [props.change]);
       return (
         <div>
-            <h2>Mess Cut Persons</h2>
-            <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Usercode</th>
-            <th>Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        {messCutPersons.map(person => 
-            <tr key={person._id}>
-                <td>{person.name}</td>
-                <td>{person.usercode}</td>
-                <td>{person.time}</td>
+    <h2>Mess Cut Persons</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Sl.no</th>
+                <th>Name</th>
+                <th>Usercode</th>
+                <th>Time</th>
             </tr>
-        )}
-    </tbody>
-</table>
-        </div>
+        </thead>
+        <tbody>
+            {messCutPersons.map((person, index) => 
+                <tr class="table-success" key={person._id}>
+                    <td>{index+1}</td>
+                    <td>{person.name}</td>
+                    <td>{person.usercode}</td>
+                    <td>{person.time}</td>
+                </tr>
+            )}
+        </tbody>
+    </table>
+</div>
     );
 }
 

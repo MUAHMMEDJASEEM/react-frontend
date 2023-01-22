@@ -37,26 +37,29 @@ function UserForm() {
     }
   }
   return (
-    <div>
-    <form onSubmit={handleSubmit}>
+   <div class="d-flex justify-content-center flex-column">
+      <form onSubmit={handleSubmit} class="form-inline d-flex mx-auto">
       <input
-        type="text"
-        placeholder="Enter user code"
-        value={userCode}
-        onChange={event => setUserCode(event.target.value)}
-      />
-      <button type="submit">Submit</button>
+          type="text"
+          placeholder="UserCode"
+          value={userCode}
+          onChange={event => setUserCode(event.target.value)}
+          class="form-control col"
+          maxLength={10}
+        />
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
       {JSON.stringify(userDetails) !== '{}' && (
-        <div>
+        <div class="text-center">
           <h2>User Details</h2>
           <p>Name: {userDetails.name}</p>
           <p>UserCode: {userDetails.usercode}</p>
           <p>MessCut Status: {messCutDetails.messcut ? 'true' : 'false'}</p>
-          <button onClick={handleUpdate}>Change Mess Cut Status</button>
+          <button onClick={handleUpdate} class="btn btn-success">Change Mess Cut Status</button>
         </div>
       )}
-    </form>
-    <List change={messCutDetails}/></div>
+      <List change={messCutDetails} class="mt-auto" />
+</div>
   );
 }
 
