@@ -3,10 +3,10 @@ import NavBar from './components/NavBar';
 import UserForm from './components/UserForm';
 function App() {
   return (
-    <div>
-      <NavBar />
-      <UserForm />
-    </div>
+<div className="container">
+  <NavBar />
+  <UserForm />
+</div>
   )
 }
 
