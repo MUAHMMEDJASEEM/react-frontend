@@ -40,7 +40,7 @@ function UserForm() {
    <div class="d-flex justify-content-center flex-column">
       <form onSubmit={handleSubmit} class="form-inline d-flex mx-auto">
       <input
-          type="text"
+          type="number"
           placeholder="UserCode"
           value={userCode}
           onChange={event => setUserCode(event.target.value)}
@@ -53,12 +53,19 @@ function UserForm() {
       {JSON.stringify(userDetails) !== '{}' && (
         <div class="text-center">
     <h2>User Details</h2>
-    <p>Name: {userDetails.name}</p>
+    <p>Name: {userDetails.name.toUpperCase()}</p>
     <p>UserCode: {userDetails.usercode}</p>
-    <p>MessCut Status: {messCutDetails.messcut ? <i className="fas fa-check"></i> : <i className="fas fa-times"></i>}</p>
+    <p class="messcut-status">
+    MessCut Status: 
+    {messCutDetails.messcut ? 
+        <i class="fas fa-check"></i> : 
+        <i class="fas fa-times"></i>
+    }
+</p>
     <button onClick={handleUpdate} class="btn btn-success">Change Mess Cut Status</button>
 </div>
       )}
+
       <List change={messCutDetails} class="mt-auto" />
 </div>
   );

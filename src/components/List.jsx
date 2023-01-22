@@ -24,7 +24,7 @@ const List = (props) => {
             {messCutPersons.map((person, index) => 
                 <tr class="table-success" key={person._id}>
                     <td>{index+1}</td>
-                    <td>{person.name}</td>
+                    <td>{person.name.toUpperCase()}</td>
                     <td>{person.usercode}</td>
                     <td>{person.time}</td>
                 </tr>
