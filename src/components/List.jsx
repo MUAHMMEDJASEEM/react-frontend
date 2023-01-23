@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-
 const List = (props) => {
     const [messCutPersons, setMessCutPersons] = useState([]);
     useEffect(() => {
         fetch('https://mess-server-wnkj.onrender.com/api/messcut/full')
           .then(response => response.json())
-          .then(data => setMessCutPersons(data))
+          .then(data => {
+              setMessCutPersons(data);
+          })
           .catch(error => console.log(error));
       }, [props.change]);
+
+
       return (
 <div class="text-center">
     <h2>Mess Cut Persons</h2>
