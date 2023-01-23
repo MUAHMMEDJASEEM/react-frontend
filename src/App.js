@@ -19,7 +19,7 @@ function App() {
     return <div className="container"><NavBar /><Loading /></div>;
   }
   return (
-    <div className="container">
+    <div>
       <NavBar />
       <UserForm />
     </div>

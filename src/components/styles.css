@@ -1,3 +1,13 @@
-.nav {
+.navbar {
     background-color: #d1e7dd;
+    margin-bottom: 10px;
+}
+.label-gap{
+    margin-right: 5px;
+}
+.input-gap{
+    margin-left: 5px;
+}
+.submit-gap{
+    margin-left: 10px;
 }

@@ -38,32 +38,54 @@ function UserForm() {
     }
   }
   return (
-   <div class="d-flex justify-content-center flex-column">
-      <form onSubmit={handleSubmit} class="form-inline d-flex mx-auto">
-      <input
-          type="number"
-          placeholder="UserCode"
-          value={userCode}
-          onChange={event => setUserCode(event.target.value)}
-          class="form-control col"
-          maxLength={10}
-        />
-        <button type="submit" class="btn btn-primary">Submit</button>
-       
-      </form>
+   <div class="d-flex justify-content-center flex-column container">
+<form onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center">
+<label htmlFor="userCode" className="text-muted mr-2 mb-0 label-gap">UserCode</label>
+<div className="form-group w-40 mr-2 input-gap">
+    <input
+        type="number"
+        placeholder="Enter UserCode"
+        value={userCode}
+        onChange={event => setUserCode(event.target.value)}
+        className="form-control"
+        maxLength={6}
+        id="userCode"
+    />
+</div>
+<button type="submit" className="btn btn-primary submit-gap">Submit</button>
+</form>
+
       {JSON.stringify(userDetails) !== '{}' && (
         <div class="text-center">
     <h2>User Details</h2>
-    <p>Name: {userDetails.name.toUpperCase()}</p>
-    <p>UserCode: {userDetails.usercode}</p>
-    <p class="messcut-status">
-    MessCut Status: 
-    {messCutDetails.messcut ? 
-        <i class="fas fa-check"></i> : 
-        <i class="fas fa-times"></i>
-    }
-</p>
-    <button onClick={handleUpdate} class="btn btn-success">Change Mess Cut Status</button>
+    <div className="table-responsive">
+    <table className="table table-striped table-bordered" style={{tableLayout: "fixed"}}>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>UserCode</th>
+                <th>MessCut Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{userDetails.name.toUpperCase()}</td>
+                <td>{userDetails.usercode}</td>
+                <td>
+                    {messCutDetails.messcut ? 
+                        <i className="fas fa-check text-success"></i> : 
+                        <i className="fas fa-times text-danger"></i>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<button 
+    onClick={handleUpdate} 
+    className={`btn ${!messCutDetails.messcut ? 'btn-success' : 'btn-danger'} m-2`}
+>Change Mess Cut Status</button>
 </div>
       )}
 
